@@ -1,0 +1,32 @@
+{
+  "family": "default-mlops-flask-app-d4b4",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::577638375055:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "Main",
+      "image": "577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest",
+      "cpu": 1024,
+      "memoryReservation": 2048,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/aws/ecs/default/mlops-flask-app-d4b4-3534",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
