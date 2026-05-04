@@ -36,6 +36,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ecs-task-def.json
-        service: mlops-flask-service
+        service: mlops-flask-app-d4b4
         cluster: default
         wait-for-service-stability: true
