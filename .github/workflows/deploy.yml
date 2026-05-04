@@ -32,7 +32,7 @@ jobs:
         docker tag mlops-flask-app:latest 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
         docker push 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
 
-    - name: Update ECS Service
+    - name: Deploy to ECS
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ecs-task-def.json
