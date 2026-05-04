@@ -32,9 +32,3 @@ jobs:
         docker tag mlops-flask-app:latest 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
         docker push 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
 
-    - name: Deploy to AWS App Runner
-      uses: aws-actions/aws-apprunner-deploy@v1
-      with:
-        service-name: mlops-flask-app-service
-        image-repository: 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
-        region: us-east-1
