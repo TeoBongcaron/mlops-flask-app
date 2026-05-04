@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 @app.route("/predict", methods=['POST'])
 def predict():
-     """Predicts the Height of MLB Players"""
-     json_payload = request.json
-     prediction = mlib.predict(json_payload['Weight'])
-     return jsonify({'prediction': prediction, 'status': 'success'})
+    """Predicts the Height of MLB Players"""
+    json_payload = request.json
+    prediction = mlib.predict(json_payload['weight'])
+    return jsonify({'prediction': prediction, 'status': 'success'})
 
 @app.route("/")
 def home():

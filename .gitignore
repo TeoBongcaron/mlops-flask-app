@@ -2,3 +2,6 @@
 .venv/
 venv/
 
+# Ignore model artifacts
+model.joblib
+
