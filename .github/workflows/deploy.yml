@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,3 +32,10 @@ jobs:
         docker tag mlops-flask-app:latest 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
         docker push 577638375055.dkr.ecr.us-east-1.amazonaws.com/mlops-flask-app:latest
 
+    - name: Update ECS Service
+      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+      with:
+        task-definition: ecs-task-def.json
+        service: mlops-flask-service
+        cluster: mlops-flask-cluster
+        wait-for-service-stability: true
